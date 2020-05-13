@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>Web-Design-Challenge</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href = "../assets/style.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+</head>
+
+<body>
+      
+    <!-- Jumbotron for the Title -->
+    <div class = "jumbotron  border-top border-bottom border-success" 
+         style= "height: 200px;" >
+
+        <h1 class = "text-center" style="color:purple"> Mission to Mars </h1>
+        <a href = "/scrape" class = "text-center btn btn-info" role="button">Scrape New Data </a>
+
+    </div> <!-- End of Jumbotron  -->
+        
+    <!-- Start of Mars News -->
+    <div class = "container-fluid p -5" > 
+
+        <h2 style="color:purple"> Latest Mars news:</h3>
+        <h4> {{ MARS_data.news_title}} </h4>
+        <h6> {{ MARS_data.news_paragraph}} </h6> <br>
+
+    </div> <!-- End of Mars News -->
+
+    <div class = "container-fluid">
+
+        <!-- Start of space-image, weather and facts -->
+        <div class = 'row justify-content-around'>
+
+            <div class = "col-md-9">
+            
+                <a href = "/scrape"> <img src = "{{MARS_data.featured_image_url}}" alt = "Mars space image" class = "image-fluid mx-auto" style = "widows: 95px;%;" > </img> </a>
+
+            </div>
+
+            <div class = "col-md-3 pxy-1  mxy 1">
+
+                <div class = 'row border border-dark mxy-2'>
+
+                    <h3 pxy-2 style="color:purple">Current Weather On Mars:</h3>
+                    <br>  <p> {{MARS_data.mars_weather}} </p>
+
+                </div>
+
+                <div class = 'row'> <br> </div>
+
+                <div class = 'row table-sm table-bordered  border-dark pxy-2 mxy-2'>
+
+                    <h3 style="color:purple"> Mars Facts:</h3>
+                    {{MARS_data.mars_facts_html|safe}}
+                
+                </div>
+
+            </div> <!-- End of column-md-4 -->
+            
+        </div>   <!-- End of space-image, weather and facts -->
+
+        <div class = "container-fluid"  style ="background-color:lavender;"  >
+     
+            <!-- Start of hemisphere-images -->
+            <div class = "row  py-3 my-3" >
+        
+                <h2> <p style="color:green"> Hemisphere Images </p> </h2> <hr> <br>
+                        
+                <!-- Start of images -->           
+                <div>  
+                
+                    <a  href = "/scrape"> 
+                        <img src="{{MARS_data.hemisphere_image_urls.Image_URL}}" 
+                        alt = "Cerebrus Hemisphere"  
+                        class = "images-fluid mx-auto" 
+                        style = "width:49%;" > 
+                    </img> </a>
+
+                    <a  href = "/scrape"> 
+                        <img src="{{MARS_data.hemisphere_image_urls.Image_URL}}" 
+                        alt = "2 Hemisphere"  
+                        class = "image-fluid mx-auto" 
+                        style = "width:49%;" > 
+                    </img> </a>
+
+                    <a  href = "/scrape"> 
+                        <img src="{{MARS_data.hemisphere_image_urls.Image_URL}}" 
+                        alt = "3 Hemisphere"  
+                        class = "image-fluid mx-auto" 
+                        style = "width:49%;" > 
+                    </img> </a>
+
+                    <a  href = "/scrape"> 
+                        <img src="{{MARS_data.hemisphere_image_urls.Image_URL}}" 
+                        alt = "4 Hemisphere"  
+                        class = "image-fluid mx-auto" 
+                        style = "width:49%;" > 
+                    </img> </a>
+                            
+                </div> <!-- End of images --> 
+
+        </div> <!-- End of container fluid-->
+              
+    </div>
+     
+</body> 
+
+</html>
+    
