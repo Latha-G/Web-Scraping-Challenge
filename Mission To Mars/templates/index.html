@@ -40,9 +40,9 @@
         <!-- Start of Mars News -->
         <div class = "row " > 
             <div class = 'col-md-12'>
-                    <h2> Latest Mars news:</h2> 
-                    <h4> {{MARS_data.news_title}} </h4>
-                    <p> {{MARS_data.news_paragraph}} </p>
+                <h2> Latest Mars news:</h2> 
+                <h4> {{MARS_data.news_title}} </h4>
+                <p> {{MARS_data.news_paragraph}} </p>
             </div>
         </div> <!-- End of Mars News -->
 
@@ -54,8 +54,8 @@
             <!-- Start of Featured Mars Image -->
             <div class = "col-md-8"> 
 
-                <h3> Featured Mars Image: </h3>
-                <img src = "{{MARS_data.featured_image_url}}"  class = "image-responsive" alt = "Mars space image" style= "width: 98%;"> 
+                <h2> Featured Mars Image: </h2>
+                <img src = "{{MARS_data.featured_image_url}}" class = "image-responsive" alt="Mars space image" style="width: 98%;"> 
                 </img>
 
             </div>  <!-- End of Featured Mars Image -->
@@ -66,19 +66,21 @@
             <div class = "col-md-4">
 
                 <!-- Start of weather -->
-                <div class = 'row border border-groove'  style = "margin-top: 40px;">
-                    <div class = "panel panel-default"style = "margin: 10px;">
-                        <h3>Current Weather On Mars:</h3>
-                        <p> {{MARS_data.mars_weather}} </p>
-                    </div> 
-                </div> <!-- End of weather -->
-
+                <div class="row card border border-dark" style = "margin-top: 45px;">
+                    <div class="card-body">
+                      <h4 class="card-title"> Current Weather On Mars: </h4>
+                      <p class="card-text"> {{MARS_data.mars_weather}} </p>
+                    </div>
+                </div> <!-- End of weather --> 
+                
                 <!------------------------------------------------------------->
                 
                 <!-- Start of Mars facts -->
                 <div class = 'row table-sm table-striped' style="margin-top: 10px;">
-                    <h3 py-3> Mars Facts:</h3>
+
+                    <h3 class ="py-3"> Mars Facts:</h3>
                     {{MARS_data.mars_facts_html|safe}}
+
                 </div> <!-- End of Mars facts -->
 
             </div> <!-- End of weather and facts -->
@@ -89,24 +91,23 @@
         
         <!-- Start of Hemisphere-images -->
 
-        <div class = "row"  style = "margin-top: 30px;" >
+        <div class = "row mx-auto"  style = "margin-top: 30px;" >
 
-            <div class = "row">
+            <div class = "row mx-auto"> </div>
                 <div class= "col-md-12">
-                   <h3 class="text-center py-3"> Mars Hemispheres:
-                   </h3>
+                   <h2 class ="text-center py-3"> Mars Hemispheres:</h2>
                 </div> 
             </div>
           
 
-            <div class = "row img-thumbnail">
+            <div class = "row img-thumbnail mx-auto">
 
                 {% for hemisphere in MARS_data.hemispheres_info %}
 
                     <div class = "col-md-6" style = "padding-top: 10px">
 
                         <div>                   
-                            <img src="{{hemisphere.Image_URL | default('static/images/error.png', true)}}" class = "image-responsive "  alt = "..." style = "width: 99%"> </img> 
+                            <img src="{{hemisphere.Image_URL | default('static/images/error.png', true)}}" class = "image-responsive"  alt = "..." style = "width: 99%"> </img> 
                         </div>
 
                         <div class = "row">
