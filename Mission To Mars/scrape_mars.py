@@ -23,7 +23,7 @@ def mars_weather():
     weather_url = 'https://twitter.com/marswxreport?lang=en'
 
     browser.visit(weather_url)
-    time.sleep(5)
+    time.sleep(3)
     
     weather_html = browser.html
 
@@ -39,7 +39,7 @@ def mars_weather():
         
         mars_weather = 'Some error occured while retrieving Mars weather data from Twitter. Please try after sometime.'
         
-    print(mars_weather)
+    #print(mars_weather)
     
     # Close the browser after scraping
     browser.quit()
@@ -61,11 +61,13 @@ def scrape_info():
 
     browser.visit(news_url)
     
-    time.sleep(3)
-
+    time.sleep(2)
+    
+    soup_html = browser.html
+    
     # Create BeautifulSoup object; parse with 'lxml'
 
-    news_soup = BeautifulSoup(browser.html, 'lxml')
+    news_soup = BeautifulSoup(soup_html, 'lxml')
 
     # Retrieve the title of first news article
 
@@ -75,8 +77,8 @@ def scrape_info():
  
     news_paragraph = news_soup.find('div', class_='article_teaser_body').text
 
-    print(news_title)
-    print(news_paragraph)
+    #print(news_title)
+    #print(news_paragraph)
           
 
     # -------------------------------------------------------------------------------
@@ -87,7 +89,7 @@ def scrape_info():
     spaceimage_url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
 
     browser.visit(spaceimage_url)
-    time.sleep(3)
+    time.sleep(2)
 
     browser.click_link_by_partial_text('FULL IMAGE')
     browser.click_link_by_partial_text('more info')
@@ -102,29 +104,9 @@ def scrape_info():
 
     featured_image_url = 'https://www.jpl.nasa.gov' + image_url
     
-    print(featured_image_url)
+    #print(featured_image_url)
 
 
-    # -------------------------------------------------------------------------------
-    '''
-   
-    # Url of Mars Weather twitter account
-    weather_url = 'https://twitter.com/marswxreport?lang=en'
-
-    browser.visit(weather_url)
-    time.sleep(5)
-    
-    weather_html = browser.html
-
-    weather_soup = BeautifulSoup(weather_html, 'lxml')
-
-    pattern = re.compile(r'InSight sol')
-
-    mars_weather = weather_soup.find('span', text = pattern).text
-
-    print(mars_weather)
-
-    '''
     # -------------------------------------------------------------------------------
 
     
@@ -132,18 +114,39 @@ def scrape_info():
     facts_url = 'https://space-facts.com/mars/'
 
     browser.visit(facts_url)
-    time.sleep(3)
+    time.sleep(2)
+    
+    facts_html = browser.html
+        
+    facts_df = pd.read_html(facts_url, index_col = None)[0]
+
+    facts_df.columns = ['Description','Value']
+
+    facts_df.set_index('Description', inplace = True)
+
+    mars_facts_html = facts_df.to_html()
+
+    # -------------------------------------------------------------------------------
+    
+    ''' Alternate Sol:
+
+    # URL of Mars Facts webpage
+    facts_url = 'https://space-facts.com/mars/'
+
+    browser.visit(facts_url)
+    time.sleep(2)
     
     facts_html = browser.html
     
     facts_soup = BeautifulSoup(facts_html, 'lxml')
-
+    
     mars_facts_table = facts_soup.find('table', id = "tablepress-p-mars")
 
     mars_facts_html = mars_facts_table.prettify()
 
-    print(mars_facts_html)
-
+    #print(mars_facts_html)
+    
+    '''
 
     # -------------------------------------------------------------------------------
     
@@ -156,7 +159,7 @@ def scrape_info():
                        ]
     
     # Create a list to add the dictionaries with the hemisphere title and the image url string.
-    hemisphere_image_urls = []
+    hemispheres_info = []
 
     
     # URL of page to be scraped
@@ -173,23 +176,25 @@ def scrape_info():
         title = hemisphere_soup.find('h2', class_ = 'title').text
         img_url = hemisphere_soup.find("div",class_ ="wide-image-wrapper").find('a')['href']
     
-        hemisphere_image_urls.append({"Title": title,
-                                      "Image_URL": img_url
-                                     })
+        hemispheres_info.append({"Title": title,
+                                 "Image_URL": img_url
+                                })
         
-    print(hemisphere_image_urls)
-                 
+    #print(hemisphere_image_urls)
+    
+    # Close the browser after scraping
+    browser.quit()
     
     mars_info = {"news_title" : news_title,
                  "news_paragraph": news_paragraph,
                  "featured_image_url" : featured_image_url,
                  "mars_weather" : mars_weather(),
                  "mars_facts_html" : mars_facts_html,
-                 "hemisphere_image_urls" : hemisphere_image_urls
+                 "hemispheres_info" : hemispheres_info
                 }
     
-    # Close the browser after scraping
-    browser.quit()
+
+    print(mars_info)
     
     return mars_info
     

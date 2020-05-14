@@ -1,0 +1,33 @@
+h{
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: blue;
+ 
+
+}
+#Logo{
+    background-color: darkblue;
+    font-size: 26px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+#img-visual{ 
+    margin-left: auto;
+    margin-right: auto;
+    width: 49%;
+    height: auto;
+}
+
+#jumbo{   
+    padding: 25px;
+    margin: 5px;
+    border-color: darkgreen;
+    border-top: 1px;
+
+
+}
+/*
+border
+*/
