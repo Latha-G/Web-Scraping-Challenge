@@ -68,7 +68,7 @@
                 <!-- Start of weather -->
                 <div class = 'row border border-groove'  style = "margin-top: 40px;">
                     <div class = "panel panel-default"style = "margin: 10px;">
-                        <h2>Current Weather On Mars:</h2>
+                        <h3>Current Weather On Mars:</h3>
                         <p> {{MARS_data.mars_weather}} </p>
                     </div> 
                 </div> <!-- End of weather -->
@@ -76,8 +76,8 @@
                 <!------------------------------------------------------------->
                 
                 <!-- Start of Mars facts -->
-                <div class = 'row table-sm table-striped' style="margin-top: 20px;">
-                    <h3> Mars Facts:</h3>
+                <div class = 'row table-sm table-striped' style="margin-top: 10px;">
+                    <h3 py-3> Mars Facts:</h3>
                     {{MARS_data.mars_facts_html|safe}}
                 </div> <!-- End of Mars facts -->
 
@@ -91,16 +91,19 @@
 
         <div class = "row"  style = "margin-top: 30px;" >
 
-            <div class="row col-md-12 text-center" style="width:98%">            
-                <h3 > Mars Hemispheres: </h3> <br>
-            </div> 
+            <div class = "row">
+                <div class= "col-md-12">
+                   <h3 class="text-center py-3"> Mars Hemispheres:
+                   </h3>
+                </div> 
+            </div>
           
 
-            <div class = "row" >
+            <div class = "row img-thumbnail">
 
                 {% for hemisphere in MARS_data.hemispheres_info %}
 
-                    <div class = "col-md-6 img-thumnail">
+                    <div class = "col-md-6" style = "padding-top: 10px">
 
                         <div>                   
                             <img src="{{hemisphere.Image_URL | default('static/images/error.png', true)}}" class = "image-responsive "  alt = "..." style = "width: 99%"> </img> 
@@ -108,8 +111,8 @@
 
                         <div class = "row">
                             <div class= "col-md-12">
-                                <h5 class="text-center">{{hemisphere.Title}}</h5>
-                                <br>
+                               <h5 class="text-center py-3">{{hemisphere.Title}} 
+                               </h5> 
                             </div> 
                         </div>
 
