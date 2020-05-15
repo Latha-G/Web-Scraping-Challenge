@@ -7,17 +7,15 @@ import re
 from splinter import Browser
 from bs4 import BeautifulSoup
 
-
-
 def init_browser():
     
     # @NOTE: Replace the path with your actual path to the chromedriver
     executable_path = {"executable_path": "/usr/local/bin/chromedriver"}
     return Browser("chrome", **executable_path, headless=False)
 
-def mars_weather():
+def mars_weather(browser):
     
-    browser = init_browser()
+    #browser = init_browser()
 
     # Url of Mars Weather twitter account
     weather_url = 'https://twitter.com/marswxreport?lang=en'
@@ -37,12 +35,12 @@ def mars_weather():
         
     except:
         
-        mars_weather = 'Some error occured while retrieving Mars weather data from Twitter. Please try after sometime.'
+        mars_weather = 'Some error occured while retrieving Mars weather data from Twitter. Please try again after sometime.'
         
-    #print(mars_weather)
+    print(mars_weather)
     
-    # Close the browser after scraping
-    browser.quit()
+    #Close the browser after scraping
+    #browser.quit()
     
     return mars_weather
     
@@ -77,8 +75,8 @@ def scrape_info():
  
     news_paragraph = news_soup.find('div', class_='article_teaser_body').text
 
-    #print(news_title)
-    #print(news_paragraph)
+    print(news_title)
+    print(news_paragraph)
           
 
     # -------------------------------------------------------------------------------
@@ -104,7 +102,7 @@ def scrape_info():
 
     featured_image_url = 'https://www.jpl.nasa.gov' + image_url
     
-    #print(featured_image_url)
+    print(featured_image_url)
 
 
     # -------------------------------------------------------------------------------
@@ -125,6 +123,8 @@ def scrape_info():
     facts_df.set_index('Description', inplace = True)
 
     mars_facts_html = facts_df.to_html()
+    
+    print(mars_facts_html)
 
     # -------------------------------------------------------------------------------
     
@@ -180,23 +180,17 @@ def scrape_info():
                                  "Image_URL": img_url
                                 })
         
-    #print(hemisphere_image_urls)
-    
-    # Close the browser after scraping
-    browser.quit()
+    print(hemispheres_info)
     
     mars_info = {"news_title" : news_title,
                  "news_paragraph": news_paragraph,
                  "featured_image_url" : featured_image_url,
-                 "mars_weather" : mars_weather(),
+                 "mars_weather" : mars_weather(browser),
                  "mars_facts_html" : mars_facts_html,
                  "hemispheres_info" : hemispheres_info
-                }
-    
+                }    
 
-    print(mars_info)
+    # Close the browser after scraping
+    browser.quit()
     
     return mars_info
-    
-    
-scrape_info()
