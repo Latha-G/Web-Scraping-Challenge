@@ -20,7 +20,9 @@ Complete initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, and Req
 # Example:
 news_title = "NASA's Next Mars Mission to Investigate Interior of Red Planet"
 
-news_p = "Preparation of NASA's next spacecraft to Mars, InSight, has ramped up this summer, on course for launch next May from Vandenberg Air Force Base in central California -- the first interplanetary launch in history from America's West Coast."
+news_p = "Preparation of NASA's next spacecraft to Mars, InSight, has ramped up this summer, on course 
+for launch next May from Vandenberg Air Force Base in central California -- the first interplanetary 
+launch in history from America's West Coast."
 ```
 
 ### JPL Mars Space Images - Featured Image
@@ -40,7 +42,8 @@ featured_image_url = 'https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA1
 
 ```python
 # Example:
-mars_weather = 'Sol 1801 (Aug 30, 2017), Sunny, high -21C/-5F, low -80C/-112F, pressure at 8.82 hPa, daylight 06:09-17:55'
+mars_weather = 'Sol 1801 (Aug 30, 2017), Sunny, high -21C/-5F, low -80C/-112F, 
+pressure at 8.82 hPa, daylight 06:09-17:55'
 ```
 
 ### Mars Facts
