@@ -1,31 +1,62 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    font-family: "Inter UI",sans-serif;
+    font-size: 10px;
+    background-color: #fbfcfd;
+    color: #4a4a4a;
+    overflow-wrap: break-word;
+}
+.card {
+    padding: .6rem 1.1rem;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 30px -5px hsla(0,0%,60.8%,.45);
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 85rem;
+}
+
 h{
     font-weight: bold;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: blue;
  }
-#Logo{
-    background-color: darkblue;
-    font-size: 26px;
-    font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: white;
-}
-
-#img-visual{ 
-    margin-left: auto;
-    margin-right: auto;
-    width: 49%;
-    height: auto;
-}
-
-#jumbo{   
-    padding: 25px;
-    margin: 5px;
-    border-color: darkgreen;
-    border-top: 1px;
-
-
-}
-/*
-border
-*/
+ 
+/* ----FOOTER START---- */
+.footer {
+    /* Positioning */
+    position: absolute;
+    bottom: 0;
+  
+    /* Box-model */
+    width: 100%;
+    height: 60px;
+    margin-top: 30px;
+  
+    /* Visual */
+    background-color: #666;
+  }
+  
+  .text-muted-footer {
+    /* Positioning */
+    margin-top: 15px;
+  
+    /* Typography */
+    color: #fff;
+  }
+  
+  .two-toned-footer-color {
+    /* Box-model */
+    height: 6px;
+    padding-top: 3px;
+  
+    /* Visual */
+    background-color: #4aaaa5;
+  }
+  
+  /* ----FOOTER END---- */
+  
