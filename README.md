@@ -10,7 +10,6 @@ Build a web application that scrapes various websites for data related to the Mi
 
 Complete initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, and Requests/Splinter.
 
-
 ### NASA Mars News
 
 * Scrape the [NASA Mars News Site](https://mars.nasa.gov/news/) and collect the latest News Title and Paragraph Text. Assign the text to variables that you can reference later.
