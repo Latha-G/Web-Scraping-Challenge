@@ -5,15 +5,9 @@
 
 ![Mars-Part-I.png](MissionToMars/Images/Mars-Part-I.png)
 ![Mars-Part-II.png](MissionToMars/Images/Mars-Part-II.png)
-<<<<<<< HEAD
-![Mars-Part-3.png](MissionToMars/Images/Mars-Part-III.png)
-
-
-
-=======
 ![Mars-Part-III.png](MissionToMars/Images/Mars-Part-III.png)
----
->>>>>>> e014d37420636f147b502910dbe0081678158f7d
+___
+
 ## Step 1 - Scraping
 
 Complete initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, and Requests/Splinter.
