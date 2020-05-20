@@ -5,7 +5,7 @@
 
 ![Mars-Part-I.png](MissionToMars/Images/Mars-Part-I.png)
 ![Mars-Part-II.png](MissionToMars/Images/Mars-Part-II.png)
-![Mars-Part-3.png](MissionToMars/Images/Mars-Part-3.png)
+![Mars-Part-III.png](MissionToMars/Images/Mars-Part-III.png)
 ---
 ## Step 1 - Scraping
 
