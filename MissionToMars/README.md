@@ -4,7 +4,7 @@ Build a web application that scrapes various websites for data related to the Mi
 
 ![Mars-Part-I.png](Images/Mars-Part-I.png)
 ![Mars-Part-II.png](Images/Mars-Part-II.png)
-![Mars-Part-3.png](Images/Mars-Part-3.png)
+![Mars-Part-III.png](Images/Mars-Part-III.png)
 
 ## Step 1 - Scraping
 
