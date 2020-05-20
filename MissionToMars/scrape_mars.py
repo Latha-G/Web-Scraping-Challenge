@@ -108,7 +108,6 @@ def scrape_info():
     # -------------------------------------------------------------------------------
 
     
-    # URL of Mars Facts webpage
     facts_url = 'https://space-facts.com/mars/'
 
     browser.visit(facts_url)
@@ -130,7 +129,6 @@ def scrape_info():
     
     ''' Alternate Sol:
 
-    # URL of Mars Facts webpage
     facts_url = 'https://space-facts.com/mars/'
 
     browser.visit(facts_url)
