@@ -1,0 +1,31 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    font-family: "Inter UI",sans-serif;
+    font-size: 10px;
+    background-color: #fbfcfd;
+    color: #4a4a4a;
+    overflow-wrap: break-word;
+}
+
+h {  
+  font-family: "Inter UI", sans-serif;
+}
+
+
+th {
+  text-align: left;
+}
+
+.card {
+    padding: .6rem 1.1rem;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 40px -5px hsla(0,0%,60.8%,.45);
+    margin: 0 auto;
+    width: 99%;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 85rem;
+}

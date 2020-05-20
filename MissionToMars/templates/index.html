@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -8,8 +9,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href = "templates/static/assets/style.css">
-
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
@@ -17,6 +16,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"> </script>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"> </script>
+  
+
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/style.css')}}"> 
 
 </head>
 
@@ -38,10 +40,11 @@
         <!--------------------------------------------------------------------->
 
         <!-- Start of Mars News -->
-        <div class = "row " > 
+        <div class = "row card mx-1  py-3" 
+             style = "box-shadow: 0 0 40px -5px hsla(0,0%,60.8%,.45);" > 
             <div class = 'col-md-12'>
-                <h2> Latest Mars news:</h2> 
-                <h4> {{MARS_data.news_title}} </h4>
+                <h4> Latest Mars news:</h2> 
+                <h5> {{MARS_data.news_title}} </h4>
                 <p> {{MARS_data.news_paragraph}} </p>
             </div>
         </div> <!-- End of Mars News -->
@@ -49,15 +52,17 @@
         <!--------------------------------------------------------------------->
 
         <!-- Start of Featured Mars Image, weather and facts -->
+
+        <h4 class = "row mx-2 py-3"> Featured Mars Image: </h2>
+
         <div class = 'row justify-content-around'>
 
             <!-- Start of Featured Mars Image -->
-            <div class = "col-md-8 justify-content-around"> 
-
-                <h2 px-3> Featured Mars Image: </h2>
-
-                <img src = "{{MARS_data.featured_image_url}}" class = "image-responsive" alt="Mars space image" style="width: 99%;"> 
-                </img>
+            <div class = "col-md-8"> 
+                <div class = "card mx-2">
+                    <img src = "{{MARS_data.featured_image_url}}" class = "image-responsive" alt="Mars space image" style="width:100%;"> 
+                    </img>
+                </div>
 
             </div>  <!-- End of Featured Mars Image -->
 
@@ -67,10 +72,12 @@
             <div class = "col-md-4 justify-content-around">
 
                 <!-- Start of weather -->
-                <div class="row card border border-dark" style = "margin-top: 45px;">
-                    
-                    <h4 class="card-header" style="background-color:rgba(0,0,0,.1);" >  Current Weather On Mars: </h4>
+    
+                <div class="card" 
+                     style ="box-shadow: 0 0 40px -5px hsla(0,0%,60.8%,.45);" >
 
+                    <h5 class="card-header"style="background-color:rgba(0,0,0,.1);"> Current Weather On Mars:
+                    </h4>
                     <div class="card-body">
                       <p class="card-text"> {{MARS_data.mars_weather}} </p>
                     </div>
@@ -79,12 +86,11 @@
                 <!------------------------------------------------------------->
                
                 <!-- Start of Mars facts -->
-                <div class = 'row table-sm table-striped table-hover' style = "margin-top: 10px;">
-
-                    <h3 class = "py-3"> Mars Facts:</h3>
-                    {{MARS_data.mars_facts_html|safe}}
-
-                </div> <!-- End of Mars facts -->
+                <div class = "py-3 mx-1"> <h4> Mars Facts:</h4> </div>
+                               
+                <div class = 'card table-sm table-striped table-hover table-bordered' style = "box-shadow: 0 0 40px -5px hsla(0,0%,60.8%,.45);"> {{MARS_data.mars_facts_html|safe}} </div> 
+                
+                <!-- End of Mars facts -->
 
             </div> <!-- End of weather and facts -->
                 
@@ -98,25 +104,23 @@
 
             <div class = "row mx-auto"> </div>
                 <div class= "col-md-12">
-                   <h2 class ="text-center py-3"> Mars Hemispheres:</h2>
+                   <h3 class ="text-center py-2"> Mars Hemispheres:</h2>
                 </div> 
             </div>
           
-
-            <div class = "row img-thumbnail mx-auto">
+            <div class = "row img-thumbnail justify-content-around mx-2">
 
                 {% for hemisphere in MARS_data.hemispheres_info %}
 
-                    <div class = "col-md-6" style = "padding-top: 10px">
+                    <div class = "col-md-6" style = "padding-top: 15px">
 
-                        <div>                   
-                            <img src="{{hemisphere.Image_URL | default('static/images/error.png', true)}}" class = "image-responsive"  alt = "..." style = "width: 99%"> </img> 
+                        <div>    
+                            <img src="{{hemisphere.Image_URL | default('static/images/error.png', true)}}" class = "image-responsive"  alt = "..." style = "width: 100%"> </img>
                         </div>
 
                         <div class = "row">
-                            <div class= "col-md-12">
-                               <h5 class="text-center py-3">{{hemisphere.Title}} 
-                               </h5> 
+                            <div class= "col-md-12 text-center my-2">
+                               <h5 style = "color: darkblue;"> {{hemisphere.Title}} </h5> 
                             </div> 
                         </div>
 
