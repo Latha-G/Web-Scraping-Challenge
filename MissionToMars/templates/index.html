@@ -17,7 +17,6 @@
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"> </script>
   
-
   <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/style.css')}}"> 
 
 </head>
@@ -32,17 +31,16 @@
         <!-- Jumbotron for the Title -->
         <div class = "jumbotron text-center" style= "height: 200px;" >
 
-            <h1> Mission to Mars </h1>
-            <p> <a href="/scrape" class="btn btn-primary btn-lg" role="button"> Scrape New Data </a> </p>
+            <h2> Mission to Mars </h2>
+            <p> <a href="/scrape" class="btn btn-info btn-lg" role="button"> Scrape New Data </a> </p>
 
         </div> <!-- End of Title Jumbotron  -->
 
         <!--------------------------------------------------------------------->
 
         <!-- Start of Mars News -->
-        <div class = "row card mx-1  py-3" 
-             style = "box-shadow: 0 0 40px -5px hsla(0,0%,60.8%,.45);" > 
-            <div class = 'col-md-12'>
+        <div class = "row card mx-1" > 
+            <div class = 'col-md-12 py-2'>
                 <h4> Latest Mars news:</h2> 
                 <h5> {{MARS_data.news_title}} </h4>
                 <p> {{MARS_data.news_paragraph}} </p>
@@ -57,40 +55,43 @@
 
         <div class = 'row justify-content-around'>
 
-            <!-- Start of Featured Mars Image -->
+            <!-------- Start of Featured Mars Image ------>
             <div class = "col-md-8"> 
                 <div class = "card mx-2">
                     <img src = "{{MARS_data.featured_image_url}}" class = "image-responsive" alt="Mars space image" style="width:100%;"> 
                     </img>
                 </div>
 
-            </div>  <!-- End of Featured Mars Image -->
+            </div>  
+            <!-------- End of Featured Mars Image -------->
 
             <!---------------------------------------------------------------->
 
             <!-- Start of weather and facts -->
-            <div class = "col-md-4 justify-content-around">
+            <div class = "col-md-4">
 
-                <!-- Start of weather -->
+                <!------- Start of weather ------>
     
-                <div class="card" 
-                     style ="box-shadow: 0 0 40px -5px hsla(0,0%,60.8%,.45);" >
+                <div class="row card mx-1" >
 
-                    <h5 class="card-header"style="background-color:rgba(0,0,0,.1);"> Current Weather On Mars:
-                    </h4>
+                    <h5 class="card-header"> Current Weather On Mars: </h5>
                     <div class="card-body">
                       <p class="card-text"> {{MARS_data.mars_weather}} </p>
                     </div>
-                </div> <!-- End of weather --> 
+                
+                </div> 
+                <!--------   End of weather --------> 
                 
                 <!------------------------------------------------------------->
                
                 <!-- Start of Mars facts -->
-                <div class = "py-3 mx-1"> <h4> Mars Facts:</h4> </div>
-                               
-                <div class = 'card table-sm table-striped table-hover table-bordered' style = "box-shadow: 0 0 40px -5px hsla(0,0%,60.8%,.45);"> {{MARS_data.mars_facts_html|safe}} </div> 
+
+                <div class = "py-3 mx-3"> <h4> Mars Facts:</h4> </div>
+                    
+                <div class = 'row card table table-sm table-striped table-hover table-bordered mx-1'> {{MARS_data.mars_facts_html|safe}} 
+                </div> 
                 
-                <!-- End of Mars facts -->
+                <!-------   End of Mars facts ------->
 
             </div> <!-- End of weather and facts -->
                 
@@ -100,37 +101,35 @@
         
         <!-- Start of Hemisphere-images -->
 
-        <div class = "row mx-auto"  style = "margin-top: 30px;" >
-
-            <div class = "row mx-auto"> </div>
-                <div class= "col-md-12">
-                   <h3 class ="text-center py-2"> Mars Hemispheres:</h2>
-                </div> 
-            </div>
-          
-            <div class = "row img-thumbnail justify-content-around mx-2">
-
-                {% for hemisphere in MARS_data.hemispheres_info %}
-
-                    <div class = "col-md-6" style = "padding-top: 15px">
-
-                        <div>    
-                            <img src="{{hemisphere.Image_URL | default('static/images/error.png', true)}}" class = "image-responsive"  alt = "..." style = "width: 100%"> </img>
-                        </div>
-
-                        <div class = "row">
-                            <div class= "col-md-12 text-center my-2">
-                               <h5 style = "color: darkblue;"> {{hemisphere.Title}} </h5> 
-                            </div> 
-                        </div>
-
-                    </div>
-                    
-                {% endfor %}
+        <div class = "row justify-content-around" style = "margin-top: 15px;" >
+            <div class= "col-md-12">
+                <h3 class = "text-center py-3"> Mars Hemispheres:</h2>
+            </div> 
+        </div>
             
-            </div>
+        <div class = "row mx-1 img-thumbnail justify-content-around">
 
-        </div> <!-- End of Hemisphere-images row-->
+            {% for hemisphere in MARS_data.hemispheres_info %}
+
+                <div class = "col-md-6" style = "padding-top: 20px">
+
+                    <div class = "row mx-1">    
+                        <img src="{{hemisphere.Image_URL | default('static/images/error.png', true)}}" class = "image-responsive"  alt = "..." style = "width: 100%"> </img>
+                    </div>
+
+                    <div class = "row">
+                        <div class= "col-md-12 text-center my-2">
+                            <h5> {{hemisphere.Title}} </h5> 
+                        </div> 
+                    </div>
+
+                </div>
+                    
+            {% endfor %}
+
+        </div> <!-- End of Hemisphere-images -->
+
+        <!--------------------------------------------------------------------->
                 
     </div> <!-- End of body container -->
      

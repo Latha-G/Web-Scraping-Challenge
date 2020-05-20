@@ -181,6 +181,8 @@ def scrape_info():
                                 })
         
     print(hemispheres_info)
+
+    # -------------------------------------------------------------------------------
     
     mars_info = {"news_title" : news_title,
                  "news_paragraph": news_paragraph,

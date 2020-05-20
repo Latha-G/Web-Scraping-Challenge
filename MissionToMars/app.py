@@ -23,7 +23,7 @@ def scrape():
     # Run the scrape_info function in scrape_mars.py
     MARS_data = scrape_mars.scrape_info()
 
-    # Update the Mongo database using update and upsert=True
+    # Update the Mongo database using replace and upsert=True
     mongo.db.collection.replace_one({}, MARS_data, upsert=True)
 
     # Redirect back to home page
@@ -32,7 +32,7 @@ def scrape():
 
 if __name__ == "__main__":
     
-    app.run(debug=True, use_reloader = False)
+    app.run(debug = True, use_reloader = False)
     
     #app.run(host='0.0.0.0', port=80, debug=True)
 
